@@ -24,11 +24,16 @@
     const file = params.get("file") || "1.md"; // デフォルトは1.md
 
     // Markdownファイルを読み込む
-    fetch(file)
-      .then(response => response.text())
-      .then(md => {
-        // Markdown → HTML
-        const html = marked.parse(md);
+fetch(file)
+  .then(response => response.text())
+  .then(md => {
+    // Markdown → HTML
+    const html = marked.parse(md);
+    document.getElementById("content").innerHTML = html;
+
+    //置換を実行する
+    replaceDreamName();
+  });
 
         // 表示
         document.getElementById("content").innerHTML = html;
