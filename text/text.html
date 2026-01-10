@@ -14,8 +14,8 @@
   <!-- name.js と連動する-->
 <input id="dream-name" type="text" placeholder="名前を入力" style="font-size: 1.2em; padding: 6px;">
 <button id="save-name">保存</button>
+<button id="clear-name">リセット</button>
 <p id="save-status"></p>
-
 
 
 
@@ -30,11 +30,13 @@
     <li><a href="/Shiu/text/c/c.index.html">作品C</a></li>
   </ul>
 
-  <!-- 名前変換JS -->
-  <script src="/Shiu/assets/js/name.js?v=12345"></script>
+<!-- 名前変換JS -->
+<script src="/Shiu/assets/js/name.js?v=12345"></script>
 <script>
+
+// 保存ボタン
 document.getElementById("save-name").addEventListener("click", () => {
-  console.log("SAVE BUTTON CLICKED"); // ← これを追加
+  console.log("SAVE BUTTON CLICKED");
 
   const name = document.getElementById("dream-name").value.trim();
   if (!name) {
@@ -46,7 +48,21 @@ document.getElementById("save-name").addEventListener("click", () => {
   document.getElementById("save-status").textContent = "保存しました！";
 });
 
+
+// リセットボタン
+document.getElementById("clear-name").addEventListener("click", () => {
+  // Cookie を削除
+  document.cookie = "dreamName=; path=/; max-age=0";
+
+  // 入力欄を空にする
+  document.getElementById("dream-name").value = "";
+
+  // ステータス表示
+  document.getElementById("save-status").textContent = "名前をリセットしました。";
+});
+
 </script>
+
 
 </body>
 </html>
