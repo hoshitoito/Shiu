@@ -14,6 +14,13 @@ function setDreamName(name) {
 
 function replaceDreamName() {
   const name = getDreamName();
+
+  // デフォルト名を設定
+  if (!name) {
+    name = "ナナシ"; 
+  }
+
+
   if (!name) return;
 
   // text.html では置換しない
