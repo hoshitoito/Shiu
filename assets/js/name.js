@@ -13,7 +13,7 @@ function setDreamName(name) {
 }
 
 function replaceDreamName() {
-  const name = getDreamName();
+  let name = getDreamName();
 
   // デフォルト名を設定
   if (!name) {
