@@ -33,18 +33,19 @@
   <!-- 名前変換JS -->
   <script src="/Shiu/assets/js/name.js?v=12345"></script>
 <script>
-  document.getElementById("save-name").addEventListener("click", () => {
-    const name = document.getElementById("dream-name").value.trim();
-    if (!name) {
-      document.getElementById("save-status").textContent = "名前を入力してください。";
-      return;
-    }
+document.getElementById("save-name").addEventListener("click", () => {
+  console.log("SAVE BUTTON CLICKED"); // ← これを追加
 
-    // Cookie に保存（name.js と同じキーを使う）
-    document.cookie = `dreamName=${encodeURIComponent(name)}; path=/; max-age=31536000`;
+  const name = document.getElementById("dream-name").value.trim();
+  if (!name) {
+    document.getElementById("save-status").textContent = "名前を入力してください。";
+    return;
+  }
 
-    document.getElementById("save-status").textContent = "保存しました！";
-  });
+  document.cookie = `dreamName=${encodeURIComponent(name)}; path=/; max-age=31536000`;
+  document.getElementById("save-status").textContent = "保存しました！";
+});
+
 </script>
 
 </body>
