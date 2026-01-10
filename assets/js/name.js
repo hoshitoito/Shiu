@@ -16,9 +16,12 @@ function replaceDreamName() {
   const name = getDreamName();
   if (!name) return;
 
-  // body 全体のテキストを置換
+  // text.html では置換しない
+  if (location.pathname.includes("text.html")) return;
+
   document.body.innerHTML = document.body.innerHTML.replace(/{{dn1}}/g, name);
 }
+
 
 // ------------------------------
 // 名前入力フォームがある場合の処理
@@ -37,6 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // viewer.html など本文ページで置換を実行
-  replaceDreamName();
 });
