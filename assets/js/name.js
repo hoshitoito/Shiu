@@ -17,7 +17,7 @@ function replaceDreamName() {
   if (!name) return;
 
   // body 全体のテキストを置換
-  document.body.innerHTML = document.body.innerHTML.replace(/\[#dn=1#\]/g, name);
+  document.body.innerHTML = document.body.innerHTML.replace(/{{dn1}}/g, name);
 }
 
 // ------------------------------
