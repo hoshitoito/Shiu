@@ -22,18 +22,16 @@
 
   // Markdownファイルを読み込む
   fetch(file)
-    .then(response => response.text())
-    .then(md => {
-      // Markdown → HTML
-      const html = marked.parse(md);
-      document.getElementById("content").innerHTML = html;
+  .then(res => res.text())
+  .then(md => {
+    document.getElementById("content").innerHTML = marked.parse(md);
 
-      // ここで置換を実行
-      replaceDreamName();
-    })
-    .catch(err => {
-      document.getElementById("content").innerHTML = "読み込みエラー: " + err;
-    });
+    // ← ここで置換を実行
+    if (window.replaceDreamName) {
+      window.replaceDreamName();
+    }
+  });
+
 </script>
 
 </body>
