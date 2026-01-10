@@ -11,8 +11,13 @@
 
   <p>主人公の名前を入力してください。</p>
 
-  <!-- ここが name.js と連動する入力欄 -->
+  <!-- name.js と連動する-->
   <input id="dream-name" type="text" placeholder="名前を入力" style="font-size: 1.2em; padding: 6px;">
+  <button id="save-name">保存</button>
+  <p id="save-status"></p>
+
+
+
 
   <hr style="margin: 30px 0;">
 
@@ -26,5 +31,20 @@
 
   <!-- 名前変換JS -->
   <script src="/Shiu/assets/js/name.js"></script>
+<script>
+  document.getElementById("save-name").addEventListener("click", () => {
+    const name = document.getElementById("dream-name").value.trim();
+    if (!name) {
+      document.getElementById("save-status").textContent = "名前を入力してください。";
+      return;
+    }
+
+    // Cookie に保存（name.js と同じキーを使う）
+    document.cookie = `dreamName=${encodeURIComponent(name)}; path=/; max-age=31536000`;
+
+    document.getElementById("save-status").textContent = "保存しました！";
+  });
+</script>
+
 </body>
 </html>
