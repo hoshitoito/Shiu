@@ -10,7 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <!-- 相対パスに変更 -->
-  <script src="../../assets/js/name.js?v=12345"></script>
+  <script src="../../assets/js/name.js"></script>
 </head>
 <body>
 
@@ -20,17 +20,19 @@
   const params = new URLSearchParams(window.location.search);
   const file = params.get("file") || "1.md"; // デフォルトは1.md
 
-  // Markdownファイルを読み込む
-  fetch(file)
+// Markdownファイルを読み込む
+fetch(file)
   .then(res => res.text())
   .then(md => {
     document.getElementById("content").innerHTML = marked.parse(md);
 
-    // ← ここで置換を実行
+    // 置換を実行（これだけでOK）
     if (window.replaceDreamName) {
       window.replaceDreamName();
     }
   });
+
+
 
 </script>
 
