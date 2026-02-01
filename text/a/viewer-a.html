@@ -11,6 +11,11 @@
 
   <!-- 相対パスに変更 -->
   <script src="../../assets/js/name.js"></script>
+<script>
+  // 作品別デフォルトネーム設定
+  window.defaultDreamName = "ナナシA";
+</script>
+
 </head>
 <body>
 
@@ -26,7 +31,7 @@ fetch(file)
   .then(md => {
     document.getElementById("content").innerHTML = marked.parse(md);
 
-    // 置換を実行（これだけでOK）
+    // 置換を実行
     if (window.replaceDreamName) {
       window.replaceDreamName();
     }
