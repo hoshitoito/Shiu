@@ -15,20 +15,15 @@ function setDreamName(name) {
 function replaceDreamName() {
   let name = getDreamName();
 
-  // デフォルト名を設定
+  // デフォルト名（作品ごとに上書き可能）
   if (!name) {
-    name = "ナナシ"; 
+    name = window.defaultDreamName || "ナナシ";
   }
 
-
-  if (!name) return;
-
-  // text.html では置換しない
   if (location.pathname.includes("text.html")) return;
 
   document.body.innerHTML = document.body.innerHTML.replace(/{{dn1}}/g, name);
 }
-
 
 // ------------------------------
 // 名前入力フォームがある場合の処理
