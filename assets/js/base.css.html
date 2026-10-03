@@ -1,0 +1,112 @@
+/* 全体の基本設定 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+  color: #e0e0e0;
+  background-color: #111111;
+  /* 雨模様の背景画像（画像ファイルへのパスを指定してください） */
+  background-image: url('bg-rain.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* 中央の半透明黒ボックス */
+.main-container {
+  width: 100%;
+  max-width: 700px;
+  min-height: 450px;
+  background: linear-gradient(180deg, rgba(35, 40, 42, 0.85) 0%, rgba(20, 24, 26, 0.9) 100%);
+  border-radius: 2px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  padding: 60px 40px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+/* サイトタイトル・見出し */
+h1 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-weight: normal;
+  letter-spacing: 0.15em;
+  color: #d0d5d8;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  color: #c0c5c8;
+  margin: 30px 0 15px;
+}
+
+p {
+  font-size: 0.85rem;
+  line-height: 2;
+  letter-spacing: 0.08em;
+  color: #aaaaaa;
+  margin-bottom: 20px;
+}
+
+/* メニュー・リスト */
+nav ul, ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+/* 白抜きボタン風リンク */
+nav a, .btn-link {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #111111;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  letter-spacing: 0.1em;
+  transition: opacity 0.2s ease;
+}
+
+nav a:hover, .btn-link:hover {
+  opacity: 0.7;
+}
+
+/* 入力フォームデザイン */
+input[type="text"] {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  outline: none;
+  border-radius: 2px;
+  width: 200px;
+  text-align: center;
+}
+
+input[type="text"]::placeholder {
+  color: #888888;
+}
+
+/* 区切り線 */
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 30px 0;
+}
